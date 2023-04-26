@@ -17,7 +17,7 @@ export const registerUserService = async (form: any) => {
       REGISTER_API_ENDPOINT,
       formData,
     );
-    return response.user;
+    return response.data;
   } catch (err) {
     throw err;
   }

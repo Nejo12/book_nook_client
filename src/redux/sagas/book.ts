@@ -21,7 +21,7 @@ function* fetchBooksSaga() {
   }
 }
 
-const _id = (state: AppState) => state.authState.user._id;
+const _id = (state: AppState) => state.authState.data._id;
 
 function* fetchBookDetailSaga(action: BookActionType) {
   try {

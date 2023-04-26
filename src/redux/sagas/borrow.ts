@@ -6,7 +6,7 @@ import { GET_BORROW, BORROW_BOOK, RETURN_BOOK } from '../constants';
 import { AppState, BookResponse } from '../../types/types';
 import { url } from '../../Routes';
 
-const _id = (state: AppState) => state.authState.user._id;
+const _id = (state: AppState) => state.authState.data._id;
 const id = (state: AppState) => state.bookState.bookProps._id;
 
 function* borrowedSaga() {

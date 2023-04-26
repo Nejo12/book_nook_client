@@ -68,6 +68,7 @@ export type AuthState = {
   loading: boolean;
   errors: any;
   msg: string;
+  data: User;
   user: User;
 };
 
@@ -141,6 +142,7 @@ export type BorrowResponse = {
 };
 
 export type UserResponse = {
+  data: any;
   user: User;
   msg: string;
   error: string;

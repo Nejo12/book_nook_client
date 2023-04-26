@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux';
 import { AppState } from '../../types/types';
 
 const NavBar = (): JSX.Element => {
-  const { isAuthenticated } = useSelector((state: AppState) => state.authState);
-  const user = useSelector((state: AppState) => state.authState.user);
+  const { isAuthenticated, user } = useSelector(
+    (state: AppState) => state.authState,
+  );
 
   const handleLogout = () => {
     localStorage.clear();

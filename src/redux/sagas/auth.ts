@@ -8,7 +8,12 @@ import {
 } from '../actions/auth';
 import { LOGIN_USER_REQUEST, REGISTER_USER_REQUEST } from '../constants';
 import { registerUserService, loginUserService } from '../services/auth';
-import { LoginActionType, RegisterActionType, User } from '../../types/types';
+import {
+  LoginActionType,
+  RegisterActionType,
+  User,
+  UserResponse,
+} from '../../types/types';
 
 function* registerSaga(form: RegisterActionType) {
   const payload = form.payload;
@@ -23,7 +28,7 @@ function* registerSaga(form: RegisterActionType) {
 function* loginSaga(form: LoginActionType) {
   const payload = form.payload;
   try {
-    const response: User = yield call(loginUserService, payload);
+    const response: UserResponse = yield call(loginUserService, payload);
     yield put(loginUserSuccess(response));
   } catch (error) {
     yield put(loginUserError(error));

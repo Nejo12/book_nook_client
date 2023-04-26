@@ -6,6 +6,14 @@ const initialState: AuthState = {
   loading: false,
   errors: {},
   msg: '',
+  data: {
+    _id: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    role: '',
+  },
   user: {
     _id: '',
     firstName: '',
@@ -34,7 +42,7 @@ const authReducer = (state = initialState, action: ActionTypes) => {
         loading: false,
         user: payload.user,
         isAuthenticated: true,
-        msg: null,
+        msg: payload.msg,
         errors: false,
       };
 

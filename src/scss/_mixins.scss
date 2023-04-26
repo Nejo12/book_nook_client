@@ -1,0 +1,65 @@
+@mixin flex-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Login&Registration Form active
+@mixin signUpActive {
+  .container.s--register & {
+    @content;
+  }
+}
+
+@mixin transition-height {
+  height: 100%;
+  transition: transform $switchTime ease-in-out;
+}
+
+@mixin hidden-absolute {
+  overflow: hidden;
+  position: absolute;
+}
+
+@mixin hidden-relative {
+  overflow: hidden;
+  position: relative;
+}
+
+@mixin top-left {
+  top: 0;
+  left: 0;
+}
+
+@mixin top-right {
+  top: 0;
+  right: 0;
+}
+
+// SPINNER
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,545 @@
+@import '_config';
+@import '_mixins';
+@import '_utilities';
+@import '_miscellenous';
+
+//  /**
+//  |--------------------------------------------------
+//  | NAVIGATION
+//  |--------------------------------------------------
+//  */
+header {
+  @include flex-center;
+  width: 100%;
+  height: 5rem;
+  padding: 0 4rem;
+  justify-content: space-between;
+
+  .nav-logo,
+  a {
+    margin: 0 1rem;
+    transition: 1s;
+
+    &:hover {
+      color: var(--gray-300);
+    }
+  }
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+}
+
+.nav-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logout {
+    padding: 1rem 1.5rem;
+    margin: 0;
+    width: 100%;
+    color: var(--gray-100);
+    background: var(--red);
+    border-radius: var(--border-radius);
+
+    &:hover {
+      color: var(--white);
+    }
+  }
+}
+
+//  /**
+//  |--------------------------------------------------
+//  | LOGIN AND REGISTRATION
+//  |--------------------------------------------------
+//  */
+.container {
+  margin: 2rem auto;
+  border-radius: var(--border-radius);
+  width: $containerWidth;
+  @include hidden-relative;
+  height: $containerHeight;
+  box-shadow: inset 5px 5px 14px var(--color-shadow),
+    inset -5px -5px 14px var(--white);
+}
+
+.form {
+  width: $formWidth;
+  position: relative;
+  @include transition-height;
+}
+
+label,
+.submit,
+.google-btn {
+  display: block;
+  width: $inputWidth;
+  margin: 2rem auto 0;
+}
+
+input,
+button {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  appearance: none;
+  border-radius: var(--border-radius);
+  -webkit-appearance: none;
+  transition: all 0.4s ease-in-out;
+  background-color: var(--color-bg);
+  text-shadow: 1px 1px 0 var(--white);
+}
+
+input {
+  text-align: left;
+  box-shadow: var(--box-shadow-inset);
+
+  &:focus {
+    box-shadow: var(--box-shadow-focus);
+  }
+}
+
+.submit,
+.google-btn {
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 1px;
+  box-shadow: var(--box-shadow);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: var(--box-shadow-hover);
+  }
+
+  &:active {
+    box-shadow: var(--box-shadow-focus);
+  }
+}
+
+.submit {
+  font-weight: 600;
+  color: var(--green);
+}
+
+.google-btn {
+  padding: 1rem;
+  color: var(--gray);
+  border-radius: var(--border-radius);
+
+  span {
+    font-weight: 600;
+    color: var(--red);
+  }
+}
+
+h2 {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 200;
+  text-align: center;
+}
+
+.sub-container {
+  top: 0;
+  left: $formWidth;
+  width: $containerWidth;
+  padding-left: $imgWidth;
+  background: var(--color-bg);
+  @include hidden-absolute;
+  @include transition-height;
+  box-shadow: inset 5px 5px 14px var(--color-shadow),
+    inset -5px -5px 14px var(--white);
+
+  @include signUpActive {
+    transform: translate3d($formWidth * -1, 0, 0);
+  }
+}
+
+.img {
+  z-index: 2;
+  height: 100%;
+  width: $imgWidth;
+  padding-top: 20rem;
+  @include top-left;
+  @include hidden-absolute;
+
+  &:before {
+    content: '';
+    height: 100%;
+    @include top-right;
+    position: absolute;
+    width: $containerWidth;
+    background-size: cover;
+    background-image: url('../media/book.jpg');
+    transition: transform $switchTime ease-in-out;
+  }
+
+  &:after {
+    content: '';
+    @include top-left;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  @include signUpActive {
+    &:before {
+      transform: translate3d($formWidth, 0, 0);
+    }
+  }
+
+  &__text {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 3rem;
+    width: 100%;
+    text-align: center;
+    color: var(--white);
+    transition: transform $switchTime ease-in-out;
+
+    h2 {
+      margin-bottom: 0.8rem;
+      font-weight: 200;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    &.m--up {
+      @include signUpActive {
+        transform: translateX($imgWidth * 2);
+      }
+    }
+
+    &.m--in {
+      transform: translateX($imgWidth * -2);
+
+      @include signUpActive {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__btn {
+    z-index: 2;
+    width: 7rem;
+    margin: 0 auto;
+    cursor: pointer;
+    height: $btnHeight;
+    color: var(--white);
+    background: transparent;
+    @include hidden-relative;
+    text-transform: uppercase;
+
+    &:after {
+      z-index: 2;
+      width: 90%;
+      height: 90%;
+      content: '';
+      @include top-left;
+      position: absolute;
+      border: 2px solid var(--white);
+      border-radius: var(--border-radius);
+    }
+
+    span {
+      width: 100%;
+      height: 100%;
+      @include top-left;
+      position: absolute;
+      @include flex-center;
+      justify-content: center;
+      transition: transform $switchTime;
+
+      &.m--in {
+        transform: translateY($btnHeight * -2);
+
+        @include signUpActive {
+          transform: translateY(0);
+        }
+      }
+
+      &.m--up {
+        @include signUpActive {
+          transform: translateY($btnHeight * 2);
+        }
+      }
+    }
+  }
+}
+
+.login {
+  transition-timing-function: ease-out;
+
+  @include signUpActive {
+    transition-timing-function: ease-in-out;
+    transition-duration: $switchTime;
+    transform: translate3d($formWidth, 0, 0);
+  }
+}
+
+.register {
+  transform: translate3d($containerWidth * -1, 0, 0);
+
+  @include signUpActive {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+//  /**
+//  |--------------------------------------------------
+//  | HOME PAGE
+//  |--------------------------------------------------
+//  */
+.listContainer {
+  // height: auto;
+  // flex-wrap: wrap;
+  // max-width: 1280px;
+  // max-height: 80vh;
+  // position: fixed;
+  // overflow-y: scroll;
+  // margin: 2rem auto;
+  // position: relative;
+  // // border-radius: 2rem;
+  // border-radius: var(--border-radius);
+  // box-shadow: var(--box-shadow-inset);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+//  /**
+//  |--------------------------------------------------
+//  | BOOK-CARD
+//  |--------------------------------------------------
+//  */
+.cardContainer,
+.userContainer {
+  width: 350px;
+  height: 450px;
+  color: var(--gray-500);
+  min-width: 250px;
+  margin: 2rem 20px;
+  border-radius: var(--border-radius);
+  position: relative;
+  box-shadow: var(--box-shadow);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: var(--box-shadow-hover);
+  }
+
+  .author {
+    color: var(--red);
+  }
+}
+.userContainer {
+  height: 50%;
+  text-align: start;
+}
+
+.bookListTitle {
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--red);
+  letter-spacing: 1px;
+  padding: 2rem 0 1rem;
+}
+
+.logo {
+  width: 100%;
+  height: 150px;
+  position: relative;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--red);
+  clip-path: circle(160px at center 0);
+}
+
+.bookListDescription {
+  overflow-y: auto;
+  max-height: 7rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.more {
+  color: var(--red);
+  position: absolute;
+  bottom: 2rem;
+  left: 10%;
+}
+
+.page-title {
+  text-align: center;
+  bottom: 20px;
+  position: fixed;
+}
+
+//  /**
+//  |--------------------------------------------------
+//  | BOOK-DETAILS
+//  |--------------------------------------------------
+//  */
+.listContainer-details {
+  height: auto;
+  max-width: 1280px;
+  margin: 2rem auto;
+  position: relative;
+  // border-radius: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-inset);
+}
+
+// .back {
+//   margin-left: 5rem;
+//   height: 3rem;
+//   padding: 0.3rem;
+//   border-radius: 50%;
+//   box-shadow: var(--box-shadow);
+//   transition: 0.5s ease-out;
+
+//   &:hover {
+//     box-shadow: var(--box-shadow-focus);
+//     padding: 0.4rem;
+//   }
+// }
+
+.note {
+  background: var(--red);
+  color: var(--white);
+  font-weight: bold;
+  width: 10%;
+  display: inline;
+  padding: 8px;
+  margin: 16px 16px 16px 0;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.copies {
+  font-weight: 900;
+  margin-top: 24px;
+}
+
+.details {
+  color: var(--grey-500);
+  font-weight: 100;
+}
+.emboss {
+  color: transparent;
+  background: var(--white);
+  background-clip: text;
+  text-shadow: rgba(0, 0, 0, 0.25) 1px 2px 1px;
+}
+
+.engrave {
+  color: transparent;
+  background: var(--gray-300);
+  background-clip: text;
+  text-shadow: rgba(white, 0.5) 1px 2px 1px;
+}
+
+.center {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.edit {
+  padding: 1rem;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--blue);
+  transition: all 0.4s ease-in-out;
+  height: 54px;
+  font-size: larger;
+}
+.red {
+  background-color: var(--red);
+  height: 54px;
+  font-size: larger;
+}
+
+.spinner-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  width: 100%;
+}
+
+.spinner-container {
+  display: inline-block;
+  height: 70px;
+  width: 70px;
+  border: 5px solid var(--red);
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+  -webkit-animation: spin 1s linear infinite;
+}
+
+// NEW CONTAINER
+
+.page-container {
+  height: 80vh;
+  width: 90vw;
+  max-width: 1280px;
+  max-height: 620px;
+
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  margin: 32px auto;
+  overflow-y: scroll;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-inset);
+}
+
+// BOOK DETAIL PAGE
+.back {
+  height: 48px;
+  padding: 6px;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+  transition: 0.5s ease-out;
+
+  &:hover {
+    box-shadow: var(--box-shadow-focus);
+    padding: 8px;
+  }
+}
+
+.nowrap {
+  display: flex;
+  height: 70%;
+  flex-direction: column;
+  text-align: left;
+  gap: 30px;
+  justify-content: space-around;
+  margin: 24px;
+}
+
+.wrap {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.borrowed-container {
+  display: flex;
+  flex-wrap: wrap;
+}

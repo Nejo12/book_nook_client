@@ -1,0 +1,58 @@
+a {
+  text-decoration: none;
+}
+// Font-Size:
+.xl {
+  font-size: 4rem;
+}
+
+.l {
+  font-size: 2rem;
+}
+
+.lead {
+  font-size: 1.5rem;
+}
+
+.normal {
+  font-size: 1rem;
+}
+
+.sm {
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--red);
+}
+
+.italic {
+  font-style: italic;
+}
+
+// Margin and Padding
+$space-amounts: (1, 2, 3, 4, 5);
+@each $space in $space-amounts {
+  // X and Y Margin
+  .m-#{$space} {
+    margin: #{$space}rem;
+  }
+  // X Margin
+  .mx-#{$space} {
+    margin: 0 #{$space}rem;
+  }
+  // Y Margin
+  .my-#{$space} {
+    margin: #{$space}rem 0;
+  }
+  // X & Y Padding
+  .p-#{$space} {
+    padding: #{$space}rem;
+  }
+  // X Padding
+  .px-#{$space} {
+    padding: 0 #{$space}rem;
+  }
+  // Y Padding
+  .py-#{$space} {
+    padding: #{$space}rem 0;
+  }
+}

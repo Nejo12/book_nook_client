@@ -1,0 +1,9 @@
+// LOGIN FORM //
+$switchTime: 1s;
+$imgWidth: 20rem;
+$inputWidth: 17rem;
+$btnHeight: 2.5rem;
+$containerWidth: 57rem;
+$containerHeight: 40rem;
+$formWidth: $containerWidth - $imgWidth;
+$diffRatio: ($containerWidth - $imgWidth) / $containerWidth;

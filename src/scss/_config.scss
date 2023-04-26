@@ -1,0 +1,65 @@
+:root {
+  --white: #fff;
+  --red: #ae1100;
+  --gray: #4a5568;
+  --blue: #0a347c;
+  --green: #3c910b;
+  --max-width: 1460px;
+  --border-radius: 4px;
+  --gray-100: #e0e5ec;
+  --gray-200: #c3c1c6;
+  --gray-300: #b1b1b1;
+  --gray-500: #444;
+  --color-bg: #ebecf0;
+  --color-shadow: #babecc;
+  --focus-ring-color: var(--blue);
+  --text-decoration-color: var(--gray);
+  --box-shadow: -5px -5px 20px var(--white), 5px 5px 20px var(--color-shadow);
+  --box-shadow-hover: -2px -2px 5px var(--white),
+    2px 2px 5px var(--color-shadow);
+  --box-shadow-inset: inset 2px 2px 5px var(--color-shadow),
+    inset -5px -5px 10px var(--white);
+  --box-shadow-focus: inset 1px 1px 2px var(--color-shadow),
+    inset -1px -1px 2px var(--white);
+
+  // container
+  --containerWidth: 90vw;
+  --containerHeight: 90vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: var(--red);
+}
+
+html,
+body {
+  // margin: 0;
+  // padding: 0;
+  // text-decoration-skip-ink: 'auto';
+  // background-color: var(--color-bg);
+  background: 'pink';
+  border-width: '2px';
+  border-color: 'red';
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  text-decoration-skip-ink: 'auto';
+}
+
+body,
+p,
+input,
+select,
+textarea,
+button {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+}

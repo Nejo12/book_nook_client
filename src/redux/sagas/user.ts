@@ -14,4 +14,6 @@ function* fetchUserSaga() {
   }
 }
 
-export default [takeLatest(FETCH_USERS, fetchUserSaga)];
+const userSagaArray = [takeLatest(FETCH_USERS, fetchUserSaga)];
+
+export default userSagaArray;

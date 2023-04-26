@@ -7,15 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { fetchBookDetail } from '../../redux/actions/book';
 import { borrowBook, returnBook } from '../../redux/actions/borrow';
-import { AppState, Book, BookList } from '../../types/types';
+import { AppState } from '../../types/types';
 import Spinner from '../../components/spinner';
 import { url } from '../../Routes';
-import BookCard from '../../components/bookCard';
-
-interface IBorrowedBooks {
-  books: Book[];
-  borrowId: string[];
-}
 
 const BookDetail = (): JSX.Element => {
   const user = useSelector((state: AppState) => state.authState.user);

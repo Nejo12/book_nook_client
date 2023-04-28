@@ -70,7 +70,7 @@ const BookDetail = (): JSX.Element => {
 
   return (
     <div className='page-container p-2'>
-      <p className='page-title lead emboss'>Book Details</p>
+      <p className='page-title lead emboss hide-md'>Book Details</p>
       {loading ? (
         <Spinner />
       ) : (

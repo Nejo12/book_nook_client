@@ -20,7 +20,7 @@ const BookList = (): JSX.Element => {
 
   return (
     <div className='page-container p-2'>
-      <p className='page-title lead emboss'>Book List</p>
+      <p className='page-title lead emboss hide-md'>Book List</p>
       {bookList &&
         bookList.map((book: Book) => (
           <BookCard key={uuidv4()} bookData={book} />

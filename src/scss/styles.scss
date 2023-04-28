@@ -1,5 +1,6 @@
 @import '_config';
 @import '_mixins';
+@import '_mobile';
 @import '_utilities';
 @import '_miscellenous';
 
@@ -496,10 +497,8 @@ h2 {
   width: 90vw;
   max-width: 1280px;
   max-height: 620px;
-
   display: flex;
   flex-wrap: wrap;
-  position: fixed;
   margin: 32px auto;
   overflow-y: scroll;
   position: relative;

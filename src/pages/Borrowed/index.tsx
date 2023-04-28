@@ -18,11 +18,11 @@ const Borrowed = () => {
 
   return (
     <div className='page-container p2'>
+      <p className='page-title lead emboss'>Borrowed List</p>
       {loading ? (
         <Spinner />
       ) : (
         <div>
-          <p className='page-title lead emboss'>Borrowed List</p>
           {_bookList.length === 3 ? (
             <p className='copies'>
               <span className='note hide-md'>NOTE: </span>

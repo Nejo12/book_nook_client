@@ -8,7 +8,8 @@ import CreateBook from './pages/CreateBook';
 import LoginAndRegistration from './pages/LoginAndRegistration';
 import EditBook from './pages/EditBook';
 
-export const url = 'https://book-nook-server.adaptable.app';
+export const url = 'http://localhost:3000';
+// export const url = 'https://book-nook-server.adaptable.app';
 
 const AppRoutes = () => (
   <Routes>

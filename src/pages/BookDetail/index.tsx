@@ -70,6 +70,7 @@ const BookDetail = (): JSX.Element => {
 
   return (
     <div className='page-container p-2'>
+      <p className='page-title lead emboss'>Book Details</p>
       {loading ? (
         <Spinner />
       ) : (
@@ -143,19 +144,21 @@ const BookDetail = (): JSX.Element => {
                 <div>
                   {!userId ? (
                     <Link to='/login'>
-                      <button className='submit'>Login or Register</button>
+                      <button className='submit revamp'>
+                        Login or Register
+                      </button>
                     </Link>
                   ) : (
                     <div>
                       {isBorrowed ? (
                         <button
-                          className='submit'
+                          className='submit revamp'
                           onClick={() => onReturnClick()}>
                           Return this book
                         </button>
                       ) : (
                         <button
-                          className='submit'
+                          className='submit revamp'
                           onClick={() => onBorrowClick(bookId)}>
                           Borrow this book
                         </button>
@@ -166,7 +169,6 @@ const BookDetail = (): JSX.Element => {
               )}
             </div>
           )}
-          <p className='page-title lead emboss'>Book Details </p>
         </div>
       )}
     </div>

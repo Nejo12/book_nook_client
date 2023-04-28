@@ -1,0 +1,34 @@
+@media screen and (max-width: 1300px) {
+  .listContainer,
+  .listContainer-details {
+    margin: 2rem 1rem !important;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .hide-md {
+    display: none !important;
+  }
+
+  header {
+    @include flex-column;
+    height: 6.5rem !important;
+    padding: 0 1rem !important;
+  }
+  .bookListDescription {
+    margin-bottom: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  label,
+  .submit,
+  .google-btn {
+    width: 80% !important;
+    margin: 1rem auto 0;
+  }
+  .revamp {
+    position: relative;
+    bottom: -150px;
+  }
+}

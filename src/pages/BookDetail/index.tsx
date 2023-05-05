@@ -13,7 +13,6 @@ import { url } from '../../Routes';
 
 const BookDetail = (): JSX.Element => {
   const user = useSelector((state: AppState) => state.authState.user);
-  console.log('user in Book Detail: ', user);
   const { loading, bookProps, isBorrowed } = useSelector(
     (state: AppState) => state.bookState,
   );

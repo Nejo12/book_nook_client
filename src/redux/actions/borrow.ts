@@ -2,9 +2,10 @@ import { BookList, BookResponse, Borrow } from '../../types/types';
 import * as types from '../constants';
 
 // ALREADY BORROWED BOOK
-export const getBorrow = () => {
+export const getBorrow = (userId: string) => {
   return {
     type: types.GET_BORROW,
+    payload: userId,
   };
 };
 

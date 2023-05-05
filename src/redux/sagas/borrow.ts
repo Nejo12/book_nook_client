@@ -1,23 +1,27 @@
 import { put, takeLatest, select } from 'redux-saga/effects';
 import axios from 'axios';
 
-import * as action from '../actions/borrow'; // the list got too long.
+import {
+  getBorrowSuccess,
+  borrowBookFailure,
+  returnBookFailure,
+  getBorrowFailure,
+} from '../actions/borrow';
 import { GET_BORROW, BORROW_BOOK, RETURN_BOOK } from '../constants';
-import { AppState, BookResponse } from '../../types/types';
+import { AppState, BookActionType, BookResponse } from '../../types/types';
 import { url } from '../../Routes';
 
-const _id = (state: AppState) => state.authState.data._id;
 const id = (state: AppState) => state.bookState.bookProps._id;
 
-function* borrowedSaga() {
+function* borrowedSaga(action: BookActionType) {
   try {
-    const userId: string = yield select(_id);
+    const userId = action.payload as string;
     const response: BookResponse = yield axios.get(
       `${url}/api/borrows/all?userId=` + userId,
     );
-    yield put(action.getBorrowSuccess(response.data));
+    yield put(getBorrowSuccess(response.data));
   } catch (error: any) {
-    yield put(action.getBorrowFailure(error));
+    yield put(getBorrowFailure(error));
   }
 }
 
@@ -26,7 +30,7 @@ function* borrowBookSaga(action: any) {
     const bookData = action.payload;
     yield axios.post(`${url}/api/borrows`, bookData);
   } catch (error: any) {
-    yield put(action.borrowBookFailure(error));
+    yield put(borrowBookFailure(error));
   }
 }
 
@@ -38,7 +42,7 @@ function* returnBookSaga(action: any) {
       `${url}/api/borrows/delete/` + bookId + '/' + borrowedId,
     );
   } catch (error: any) {
-    yield put(action.returnBookFailure(error));
+    yield put(returnBookFailure(error));
   }
 }
 

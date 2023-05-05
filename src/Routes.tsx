@@ -8,8 +8,12 @@ import CreateBook from './pages/CreateBook';
 import LoginAndRegistration from './pages/LoginAndRegistration';
 import EditBook from './pages/EditBook';
 
-export const url = 'https://book-nook-server.adaptable.app';
+export const url =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://book-nook-server.adaptable.app';
 
+console.log(process.env);
 const AppRoutes = () => (
   <Routes>
     <Route path='/' element={<BookList />} />

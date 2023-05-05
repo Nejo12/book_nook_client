@@ -11,10 +11,13 @@ const Borrowed = () => {
   const { _bookList, loading } = useSelector(
     (state: AppState) => state.borrowState,
   );
+  const user = useSelector((state: AppState) => state.authState.user);
+  // When borrowing book
+  const userId = user._id;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getBorrow());
-  }, [dispatch]);
+    dispatch(getBorrow(userId));
+  }, [dispatch, userId]);
 
   return (
     <div className='page-container p2'>

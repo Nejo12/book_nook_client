@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import { AppState, BookProps } from '../../types/types';
 import Spinner from '../spinner';
 
-const BookCard = (props: BookProps) => {
+const BookCard = ({ bookData }: BookProps) => {
   const { loading } = useSelector((state: AppState) => state.bookState);
 
   if (loading) {
     return <Spinner />;
   }
 
-  const { _id, title, publisher, description, author } = props.bookData;
+  const { _id, title, publisher, description, author } = bookData;
 
   return (
     <div className='cardContainer p-1'>

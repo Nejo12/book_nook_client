@@ -30,10 +30,10 @@ export type Book = {
 
 // BORROW STATE
 export type BorrowState = {
-  _bookList: BookList[];
   loading: boolean;
   error: string;
   msg: string;
+  books: Books[];
 };
 
 type BorrowBook = {
@@ -135,7 +135,6 @@ export type BookResponse = {
 export type BorrowResponse = {
   books: Book[];
   borrow: Borrow;
-  _bookList: any[];
   msg: string;
   error: string;
   data: any;

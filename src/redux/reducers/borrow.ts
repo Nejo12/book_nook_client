@@ -2,7 +2,7 @@ import { ActionTypes, BorrowResponse, BorrowState } from '../../types/types';
 import * as types from '../constants';
 
 const initialState: BorrowState = {
-  _bookList: [],
+  books: [],
   loading: false,
   error: '',
   msg: '',
@@ -22,7 +22,7 @@ const borrowReducer = (state = initialState, action: ActionTypes) => {
       return {
         ...state,
         loading: false,
-        _bookList: payload._bookList,
+        books: payload,
       };
 
     case types.BORROW_BOOK_SUCCESS:

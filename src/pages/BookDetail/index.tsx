@@ -17,6 +17,7 @@ const BookDetail = (): JSX.Element => {
     (state: AppState) => state.bookState,
   );
   const bookState = useSelector((state: AppState) => state.bookState);
+  const borrowState = useSelector((state: AppState) => state.borrowState);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -149,18 +150,27 @@ const BookDetail = (): JSX.Element => {
                     </Link>
                   ) : (
                     <div>
-                      {isBorrowed ? (
-                        <button
-                          className='submit revamp'
-                          onClick={() => onReturnClick()}>
-                          Return this book
+                      {!isBorrowed && borrowState.books.length === 3 ? (
+                        <button disabled>
+                          Maximum books borrowed. Please return some borrowed
+                          books.
                         </button>
                       ) : (
-                        <button
-                          className='submit revamp'
-                          onClick={() => onBorrowClick(bookId)}>
-                          Borrow this book
-                        </button>
+                        <>
+                          {isBorrowed ? (
+                            <button
+                              className='submit revamp'
+                              onClick={() => onReturnClick()}>
+                              Return this book
+                            </button>
+                          ) : (
+                            <button
+                              className='submit revamp'
+                              onClick={() => onBorrowClick(bookId)}>
+                              Borrow this book
+                            </button>
+                          )}
+                        </>
                       )}
                     </div>
                   )}

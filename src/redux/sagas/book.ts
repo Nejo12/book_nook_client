@@ -21,9 +21,8 @@ function* fetchBooksSaga() {
   }
 }
 
-const _id = (state: AppState) => state.authState.data._id;
-
 function* fetchBookDetailSaga(action: BookActionType) {
+  const _id = (state: AppState) => state.authState.user._id;
   try {
     const bookId = action.payload as string;
     const userId: string = yield select(_id);

@@ -13,7 +13,6 @@ export const url =
     ? 'http://localhost:3000'
     : 'https://book-nook-server.adaptable.app';
 
-console.log(process.env);
 const AppRoutes = () => (
   <Routes>
     <Route path='/' element={<BookList />} />

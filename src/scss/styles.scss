@@ -331,12 +331,8 @@ h2 {
   margin: 2rem 20px;
   border-radius: var(--border-radius);
   position: relative;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow-hover);
   transition: all 0.2s ease-in-out;
-
-  &:hover {
-    box-shadow: var(--box-shadow-hover);
-  }
 
   .author {
     color: var(--red);
@@ -398,20 +394,6 @@ h2 {
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-inset);
 }
-
-// .back {
-//   margin-left: 5rem;
-//   height: 3rem;
-//   padding: 0.3rem;
-//   border-radius: 50%;
-//   box-shadow: var(--box-shadow);
-//   transition: 0.5s ease-out;
-
-//   &:hover {
-//     box-shadow: var(--box-shadow-focus);
-//     padding: 0.4rem;
-//   }
-// }
 
 .note {
   background: var(--red);
@@ -496,7 +478,7 @@ h2 {
   height: 80vh;
   width: 90vw;
   max-width: 1280px;
-  max-height: 620px;
+  // max-height: 620px;
   display: flex;
   flex-wrap: wrap;
   margin: 32px auto;

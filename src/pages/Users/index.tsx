@@ -16,7 +16,7 @@ const Users = () => {
 
   return (
     <div className='page-container p-2'>
-      <p className='page-title lead emboss'>User List</p>
+      {/* <p className='page-title lead emboss'>User List</p> */}
       {userList &&
         userList.map((user) => <UserCard key={uuidv4()} userData={user} />)}
     </div>

@@ -23,7 +23,7 @@ const Borrowed = () => {
 
   return (
     <div className='page-container p2'>
-      <p className='page-title lead emboss hide-md'>Borrowed List</p>
+      {/* <p className='page-title lead emboss hide-md'>Borrowed List</p> */}
       {loading ? (
         <Spinner />
       ) : (

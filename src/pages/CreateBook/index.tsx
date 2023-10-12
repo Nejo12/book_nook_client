@@ -62,7 +62,7 @@ const CreateBook = ({ history }: any): JSX.Element => {
   };
   return (
     <div className='page-container'>
-      <p className='page-title lead emboss'>Create Book</p>
+      {/* <p className='page-title lead emboss'>Create Book</p> */}
       <ToastContainer />
       <div className='p-2'>
         <form className='wrap' onChange={(e) => handleChange(e)}>
